@@ -12,7 +12,7 @@ export function Logo({ width, height, marginBottom }: LogoProps) {
       style={{
         width,
         height,
-          marginBottom,
+        marginBottom,
       }}
     >
       <img style={{ width: "100%" }} src={logo} alt="ZapRecall" />

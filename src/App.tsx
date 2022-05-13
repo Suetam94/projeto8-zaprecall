@@ -1,10 +1,18 @@
-import { Home } from "./components/home/Home";
-import '../src/assets/css/style.css';
+import { Home } from "./components/Home";
+import "../src/assets/css/style.css";
+import { useState } from "react";
+import {Card} from "./components/Card";
 
 export function App() {
+  const [isRecallInit, setIsRecallInit] = useState(false);
   return (
     <>
-      <Home />
+      <Card />
+      {/*{!isRecallInit ? (*/}
+      {/*  <Home onRecallInit={setIsRecallInit} />*/}
+      {/*) : (*/}
+      {/*  alert("iniciado")*/}
+      {/*)}*/}
     </>
   );
 }
