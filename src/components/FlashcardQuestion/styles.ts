@@ -24,11 +24,11 @@ export const FlashcardQuestionTextDiv = styled.div`
 
 export const FlashcardQuestionText = styled.p`
   font-family: "Recursive", cursive;
-  font-style: normal;
   font-weight: 400;
   font-size: 18px;
   line-height: 22px;
   color: #333333;
+  padding-bottom: 15px;
 `;
 
 export const FlashcardQuestionImageDiv = styled.div`

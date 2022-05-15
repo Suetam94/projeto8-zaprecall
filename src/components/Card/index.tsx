@@ -11,8 +11,16 @@ export function Card() {
 
   useEffect(() => {
     request
-      .get("/questions?apiKey=S19VeOIbHXr4DMzaDhGN0fQrvZOxp4tOuC7RvmRr&limit=4")
-      .then((response) => setQuestions(response.data));
+      .get(
+        "/questions?apiKey=S19VeOIbHXr4DMzaDhGN0fQrvZOxp4tOuC7RvmRr&limit=20"
+      )
+      .then((response) =>
+        setQuestions(
+          response.data
+            .filter((item: { correct_answer: any }) => item.correct_answer)
+            .slice(0, 4)
+        )
+      );
   }, []);
 
   return (
@@ -23,7 +31,13 @@ export function Card() {
       </CardHeader>
       <CardMain>
         {questions.map((question, index) => {
-          return <FlashcardFrontFace cardNumber={index + 1} key={index} questionInfo={question} />;
+          return (
+            <FlashcardFrontFace
+              cardNumber={index + 1}
+              key={index}
+              questionInfo={question}
+            />
+          );
         })}
       </CardMain>
     </>

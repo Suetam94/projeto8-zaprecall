@@ -23,6 +23,7 @@ export const FlashcardBackFaceAnswer = styled.p`
   font-size: 18px;
   line-height: 22px;
   color: #333333;
+  padding-bottom: 15px;
 `;
 
 export const FlashcardBackFaceButtonsContainer = styled.div`
