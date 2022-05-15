@@ -3,6 +3,8 @@ import { AppTitle } from "../Generals/AppTitle";
 
 import { FlashcardFrontFace } from "../FlashcardFrontFace";
 import { CardHeader, CardMain } from "./styles";
+import {useEffect, useState} from "react";
+import {request} from "../../libs/app";
 
 export function Card() {
   return (

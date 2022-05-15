@@ -4,12 +4,20 @@ import {
   FlashcardBackFaceContainer,
   FlashcardBackFaceButtonsContainer,
 } from "./styles";
+import { QuestionProps } from "../FlashcardFrontFace";
 
-export function FlashcardBackFace() {
+interface FlashcardQuestionProps {
+  questionInfo: QuestionProps;
+}
+
+export function FlashcardBackFace({
+  questionInfo: { answers, correct_answer },
+}: FlashcardQuestionProps) {
   return (
     <FlashcardBackFaceContainer>
       <FlashcardBackFaceAnswer>
-        JSX é uma sintaxe para escrever HTML dentro do JS
+        {/*// @ts-ignore*/}
+        {answers[correct_answer]}
       </FlashcardBackFaceAnswer>
       <FlashcardBackFaceButtonsContainer>
         <FlashcardButton className={"button-red"}>Não lembrei</FlashcardButton>

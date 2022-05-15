@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const FlashcardBackFaceContainer = styled.div`
   width: 299px;
-  height: 131px;
+  min-height: 131px;
   background: #ffffd5;
   box-shadow: 0 4px 5px rgba(0, 0, 0, 0.15);
   border-radius: 5px;
