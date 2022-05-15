@@ -14,9 +14,8 @@ export function Card() {
         <AppTitle marginLeft={"15px"} />
       </CardHeader>
       <CardMain>
-          <FlashcardSummary />
         {/*<FlashcardBackFace />*/}
-        {/*<FlashcardFrontFace />*/}
+        <FlashcardFrontFace />
       </CardMain>
     </>
   );
