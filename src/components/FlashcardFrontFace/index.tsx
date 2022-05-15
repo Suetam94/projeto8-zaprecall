@@ -42,7 +42,11 @@ export function FlashcardFrontFace({
           onAnswerIsShowed={setShowAnswer}
         />
       ) : (
-        <FlashcardBackFace questionInfo={questionInfo} />
+        <FlashcardBackFace
+          onAnswersShowed={setShowAnswer}
+          onTitleClicked={setIsClicked}
+          questionInfo={questionInfo}
+        />
       )}
     </>
   );

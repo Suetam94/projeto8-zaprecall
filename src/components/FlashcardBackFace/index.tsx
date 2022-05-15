@@ -8,11 +8,20 @@ import { QuestionProps } from "../FlashcardFrontFace";
 
 interface FlashcardQuestionProps {
   questionInfo: QuestionProps;
+  onTitleClicked: (clicked: boolean) => void;
+  onAnswersShowed: (clicked: boolean) => void;
 }
 
 export function FlashcardBackFace({
   questionInfo: { answers, correct_answer },
+  onTitleClicked,
+  onAnswersShowed,
 }: FlashcardQuestionProps) {
+  function handleReturnAfterFeedback() {
+    onTitleClicked(false);
+    onAnswersShowed(false);
+  }
+
   return (
     <FlashcardBackFaceContainer>
       <FlashcardBackFaceAnswer>
@@ -20,11 +29,24 @@ export function FlashcardBackFace({
         {answers[correct_answer]}
       </FlashcardBackFaceAnswer>
       <FlashcardBackFaceButtonsContainer>
-        <FlashcardButton className={"button-red"}>Não lembrei</FlashcardButton>
-        <FlashcardButton className={"button-orange"}>
+        <FlashcardButton
+          onClick={handleReturnAfterFeedback}
+          className={"button-red"}
+        >
+          Não lembrei
+        </FlashcardButton>
+        <FlashcardButton
+          onClick={handleReturnAfterFeedback}
+          className={"button-orange"}
+        >
           Quase não lembrei
         </FlashcardButton>
-        <FlashcardButton className={"button-green"}>Zap!</FlashcardButton>
+        <FlashcardButton
+          onClick={handleReturnAfterFeedback}
+          className={"button-green"}
+        >
+          Zap!
+        </FlashcardButton>
       </FlashcardBackFaceButtonsContainer>
     </FlashcardBackFaceContainer>
   );
