@@ -13,8 +13,8 @@ export function Card() {
         <AppTitle marginLeft={"15px"} />
       </header>
       <main>
-        <FlashcardBackFace />
-        {/*<FlashcardFrontFace questionIndex={1} />*/}
+        {/*<FlashcardBackFace />*/}
+        <FlashcardFrontFace />
         {/*<FlashcardFrontFace questionIndex={2} />*/}
         {/*<FlashcardFrontFace questionIndex={3} />*/}
         {/*<FlashcardFrontFace questionIndex={4} />*/}

@@ -1,15 +1,6 @@
-import play from "../../assets/img/play.svg";
-import "./style.css";
+import { FlashcardTitle } from "../FlashcardTitle";
+import { FlashcardQuestion } from "../FlashcardQuestion";
 
-interface FlashcardFrontFaceProps {
-  questionIndex: number;
-}
-
-export function FlashcardFrontFace({ questionIndex }: FlashcardFrontFaceProps) {
-  return (
-    <div className="flashcard">
-      <span>Pergunta {questionIndex}</span>
-      <img src={play} alt="Play" />
-    </div>
-  );
+export function FlashcardFrontFace() {
+  return <FlashcardQuestion />;
 }
