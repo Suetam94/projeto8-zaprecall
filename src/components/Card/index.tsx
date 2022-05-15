@@ -2,9 +2,7 @@ import { Logo } from "../Generals/Logo";
 import { AppTitle } from "../Generals/AppTitle";
 
 import { FlashcardFrontFace } from "../FlashcardFrontFace";
-import { FlashcardBackFace } from "../FlashcardBackFace";
 import { CardHeader, CardMain } from "./styles";
-import {FlashcardSummary} from "../FlashcardSummary";
 
 export function Card() {
   return (
@@ -14,7 +12,6 @@ export function Card() {
         <AppTitle marginLeft={"15px"} />
       </CardHeader>
       <CardMain>
-        {/*<FlashcardBackFace />*/}
         <FlashcardFrontFace />
       </CardMain>
     </>

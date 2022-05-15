@@ -13,7 +13,7 @@ export const FlashcardBackFaceContainer = styled.div`
 `;
 
 export const FlashcardBackFaceAnswer = styled.p`
-  font-family: 'Recursive', cursive;
+  font-family: "Recursive", cursive;
   font-weight: 400;
   font-size: 18px;
   line-height: 22px;
