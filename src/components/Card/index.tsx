@@ -5,6 +5,7 @@ import { FlashcardFrontFace, QuestionProps } from "../FlashcardFrontFace";
 import { CardHeader, CardMain } from "./styles";
 import { useEffect, useState } from "react";
 import { request } from "../../libs/app";
+import { FlashcardPartialSummary } from "../FlashcardPartialSummary";
 
 export function Card() {
   const [questions, setQuestions] = useState<QuestionProps[]>([]);
@@ -40,6 +41,7 @@ export function Card() {
           );
         })}
       </CardMain>
+      <FlashcardPartialSummary />
     </>
   );
 }
