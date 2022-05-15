@@ -1,24 +1,23 @@
 import { Logo } from "../Generals/Logo";
 import { AppTitle } from "../Generals/AppTitle";
 
-import "./style.css";
 import { FlashcardFrontFace } from "../FlashcardFrontFace";
 import { FlashcardBackFace } from "../FlashcardBackFace";
+import { CardHeader, CardMain } from "./styles";
+import {FlashcardSummary} from "../FlashcardSummary";
 
 export function Card() {
   return (
-    <div className="card">
-      <header>
+    <>
+      <CardHeader>
         <Logo width={"52px"} height={"60px"} />
         <AppTitle marginLeft={"15px"} />
-      </header>
-      <main>
+      </CardHeader>
+      <CardMain>
+          <FlashcardSummary />
         {/*<FlashcardBackFace />*/}
-        <FlashcardFrontFace />
-        {/*<FlashcardFrontFace questionIndex={2} />*/}
-        {/*<FlashcardFrontFace questionIndex={3} />*/}
-        {/*<FlashcardFrontFace questionIndex={4} />*/}
-      </main>
-    </div>
+        {/*<FlashcardFrontFace />*/}
+      </CardMain>
+    </>
   );
 }
