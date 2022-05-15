@@ -1,8 +1,7 @@
 import { FlashcardTitle } from "../FlashcardTitle";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { FlashcardQuestion } from "../FlashcardQuestion";
 import { FlashcardBackFace } from "../FlashcardBackFace";
-import { request } from "../../libs/app";
 
 export interface QuestionProps {
   id: number;
@@ -18,34 +17,32 @@ export interface QuestionProps {
   correct_answer: string;
 }
 
-export function FlashcardFrontFace() {
+interface FlashcardFrontFaceProps {
+  cardNumber: number;
+  questionInfo: QuestionProps;
+}
+
+export function FlashcardFrontFace({
+  cardNumber,
+  questionInfo,
+}: FlashcardFrontFaceProps) {
   const [isClicked, setIsClicked] = useState(false);
   const [showAnswer, setShowAnswer] = useState(false);
-  const [questions, setQuestions] = useState<QuestionProps[]>([]);
-
-  useEffect(() => {
-    request
-      .get("/questions?apiKey=S19VeOIbHXr4DMzaDhGN0fQrvZOxp4tOuC7RvmRr&limit=1")
-      .then((response) => setQuestions(response.data));
-  }, []);
 
   return (
     <>
       {!isClicked ? (
-        <FlashcardTitle questionIndex={1} onCardClicked={setIsClicked} />
+        <FlashcardTitle
+          questionIndex={cardNumber}
+          onCardClicked={setIsClicked}
+        />
       ) : !showAnswer ? (
-        questions.map((question) => {
-          return (
-            <FlashcardQuestion
-              questionInfo={question}
-              onAnswerIsShowed={setShowAnswer}
-            />
-          );
-        })
+        <FlashcardQuestion
+          questionInfo={questionInfo}
+          onAnswerIsShowed={setShowAnswer}
+        />
       ) : (
-        questions.map((question) => {
-          return <FlashcardBackFace questionInfo={question} />;
-        })
+        <FlashcardBackFace questionInfo={questionInfo} />
       )}
     </>
   );

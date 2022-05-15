@@ -10,6 +10,11 @@ export const FlashcardQuestionContainer = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  margin-bottom: 25px;
+
+  :last-child {
+    margin-bottom: 0;
+  }
 `;
 
 export const FlashcardQuestionTextDiv = styled.div`

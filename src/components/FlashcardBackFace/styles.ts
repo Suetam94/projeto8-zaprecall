@@ -10,6 +10,11 @@ export const FlashcardBackFaceContainer = styled.div`
   flex-direction: column;
   justify-content: space-between;
   padding: 18px 15px 6px 15px;
+  margin-bottom: 25px;
+
+  :last-child {
+    margin-bottom: 0;
+  }
 `;
 
 export const FlashcardBackFaceAnswer = styled.p`
