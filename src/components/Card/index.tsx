@@ -2,7 +2,8 @@ import { Logo } from "../Generals/Logo";
 import { AppTitle } from "../Generals/AppTitle";
 
 import "./style.css";
-import { FlashCard } from "../FlashCard";
+import { FlashcardFrontFace } from "../FlashcardFrontFace";
+import { FlashcardBackFace } from "../FlashcardBackFace";
 
 export function Card() {
   return (
@@ -12,10 +13,11 @@ export function Card() {
         <AppTitle marginLeft={"15px"} />
       </header>
       <main>
-        <FlashCard questionIndex={1} />
-        <FlashCard questionIndex={2} />
-        <FlashCard questionIndex={3} />
-        <FlashCard questionIndex={4} />
+        <FlashcardBackFace />
+        {/*<FlashcardFrontFace questionIndex={1} />*/}
+        {/*<FlashcardFrontFace questionIndex={2} />*/}
+        {/*<FlashcardFrontFace questionIndex={3} />*/}
+        {/*<FlashcardFrontFace questionIndex={4} />*/}
       </main>
     </div>
   );

@@ -1,11 +1,11 @@
 import play from "../../assets/img/play.svg";
 import "./style.css";
 
-interface FlashCardProps {
+interface FlashcardFrontFaceProps {
   questionIndex: number;
 }
 
-export function FlashCard({ questionIndex }: FlashCardProps) {
+export function FlashcardFrontFace({ questionIndex }: FlashcardFrontFaceProps) {
   return (
     <div className="flashcard">
       <span>Pergunta {questionIndex}</span>
