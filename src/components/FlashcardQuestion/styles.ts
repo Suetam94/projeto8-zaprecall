@@ -13,7 +13,7 @@ export const FlashcardQuestionContainer = styled.div`
   margin-bottom: 25px;
 
   :last-child {
-    margin-bottom: 0;
+    margin-bottom: 75px;
   }
 `;
 
@@ -29,6 +29,7 @@ export const FlashcardQuestionText = styled.p`
   line-height: 22px;
   color: #333333;
   padding-bottom: 15px;
+  word-wrap: break-word;
 `;
 
 export const FlashcardQuestionImageDiv = styled.div`

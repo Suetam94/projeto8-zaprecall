@@ -12,5 +12,5 @@ export const CardMain = styled.div`
   flex-direction: column;
   align-items: center;
   margin-top: 51px;
-  padding-bottom: 25px;
+  padding-bottom: 75px;
 `;
