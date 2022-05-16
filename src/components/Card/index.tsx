@@ -20,12 +20,12 @@ export function Card({ onRecallInit, flashcardGoal, deck }: CardProps) {
   const [cardsSolved, setCardsSolved] = useState(0);
   const [summaryImage, setSummaryImage] = useState<Array<string>>([]);
 
-  console.log(deck);
+  const apiKey = import.meta.env.VITE_API_KEY;
 
   useEffect(() => {
     request
       .get(
-        `/questions?apiKey=S19VeOIbHXr4DMzaDhGN0fQrvZOxp4tOuC7RvmRr&limit=20&category=${
+        `/questions?apiKey=${apiKey}&limit=20&category=${
           deck === "all" ? "" : deck
         }`
       )
