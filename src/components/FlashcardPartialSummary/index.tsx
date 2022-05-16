@@ -3,11 +3,18 @@ import {
   FlashcardPartialSummaryContent,
 } from "./styles";
 
-export function FlashcardPartialSummary() {
+interface FlashcardPartialSummaryProps {
+  concluded: number;
+}
+
+export function FlashcardPartialSummary({
+  concluded,
+}: FlashcardPartialSummaryProps) {
+  console.log(concluded);
   return (
     <FlashcardPartialSummaryContainer>
       <FlashcardPartialSummaryContent>
-        0/4 CONCLUÍDOS
+        {concluded}/4 CONCLUÍDOS
       </FlashcardPartialSummaryContent>
     </FlashcardPartialSummaryContainer>
   );

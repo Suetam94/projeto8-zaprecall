@@ -20,14 +20,22 @@ export interface QuestionProps {
 interface FlashcardFrontFaceProps {
   cardNumber: number;
   questionInfo: QuestionProps;
+  cardsSolved: number;
+  onCardsSolved: (solved: number) => void;
 }
+
+import play from "../../assets/img/play.svg";
 
 export function FlashcardFrontFace({
   cardNumber,
   questionInfo,
+  cardsSolved,
+  onCardsSolved,
 }: FlashcardFrontFaceProps) {
   const [isClicked, setIsClicked] = useState(false);
   const [showAnswer, setShowAnswer] = useState(false);
+  // const [cardsSolved, setCardsSolved] = useState(0);
+  const [cardResult, setCardResult] = useState(play);
 
   return (
     <>
@@ -35,6 +43,7 @@ export function FlashcardFrontFace({
         <FlashcardTitle
           questionIndex={cardNumber}
           onCardClicked={setIsClicked}
+          cardResult={cardResult}
         />
       ) : !showAnswer ? (
         <FlashcardQuestion
@@ -45,6 +54,9 @@ export function FlashcardFrontFace({
         <FlashcardBackFace
           onAnswersShowed={setShowAnswer}
           onTitleClicked={setIsClicked}
+          onCardSolved={onCardsSolved}
+          cardsSolved={cardsSolved}
+          onCardResult={setCardResult}
           questionInfo={questionInfo}
         />
       )}

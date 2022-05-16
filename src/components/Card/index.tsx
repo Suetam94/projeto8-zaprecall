@@ -9,6 +9,7 @@ import { FlashcardPartialSummary } from "../FlashcardPartialSummary";
 
 export function Card() {
   const [questions, setQuestions] = useState<QuestionProps[]>([]);
+  const [cardsSolved, setCardsSolved] = useState(0);
 
   useEffect(() => {
     request
@@ -34,6 +35,8 @@ export function Card() {
         {questions.map((question, index) => {
           return (
             <FlashcardFrontFace
+              cardsSolved={cardsSolved}
+              onCardsSolved={setCardsSolved}
               cardNumber={index + 1}
               key={index}
               questionInfo={question}
@@ -41,7 +44,7 @@ export function Card() {
           );
         })}
       </CardMain>
-      <FlashcardPartialSummary />
+      <FlashcardPartialSummary concluded={cardsSolved} />
     </>
   );
 }
