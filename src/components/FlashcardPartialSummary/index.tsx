@@ -29,7 +29,7 @@ export function FlashcardPartialSummary({
         </div>
       </FlashcardPartialSummaryContainer>
     );
-  } else if (concluded === 4) {
+  } else {
     return <FlashcardSummary summaryImage={summaryImage} />;
   }
 }
