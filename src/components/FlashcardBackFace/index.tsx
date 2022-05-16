@@ -17,6 +17,8 @@ interface FlashcardQuestionProps {
   onCardSolved: any;
   onCardResult: (image: string) => void;
   cardsSolved: number;
+  onSummaryImage: (image: Array<string>) => void;
+  summaryImage: Array<string>;
 }
 
 export function FlashcardBackFace({
@@ -26,14 +28,19 @@ export function FlashcardBackFace({
   cardsSolved,
   onCardSolved,
   onCardResult,
+  onSummaryImage,
+  summaryImage,
 }: FlashcardQuestionProps) {
   function handleReturnAfterFeedback(buttonClicked: string) {
     if (buttonClicked === "error") {
       onCardResult(error);
+      onSummaryImage([...summaryImage, error]);
     } else if (buttonClicked === "doubt") {
       onCardResult(doubt);
+      onSummaryImage([...summaryImage, doubt]);
     } else if (buttonClicked === "check") {
       onCardResult(check);
+      onSummaryImage([...summaryImage, check]);
     }
 
     onTitleClicked(false);

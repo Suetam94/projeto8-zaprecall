@@ -22,6 +22,8 @@ interface FlashcardFrontFaceProps {
   questionInfo: QuestionProps;
   cardsSolved: number;
   onCardsSolved: (solved: number) => void;
+  onSummaryImage: ([]: Array<string>) => void;
+  summaryImage: Array<string>;
 }
 
 import play from "../../assets/img/play.svg";
@@ -31,6 +33,8 @@ export function FlashcardFrontFace({
   questionInfo,
   cardsSolved,
   onCardsSolved,
+  onSummaryImage,
+  summaryImage,
 }: FlashcardFrontFaceProps) {
   const [isClicked, setIsClicked] = useState(false);
   const [showAnswer, setShowAnswer] = useState(false);
@@ -57,6 +61,8 @@ export function FlashcardFrontFace({
           cardsSolved={cardsSolved}
           onCardResult={setCardResult}
           questionInfo={questionInfo}
+          onSummaryImage={onSummaryImage}
+          summaryImage={summaryImage}
         />
       )}
     </>

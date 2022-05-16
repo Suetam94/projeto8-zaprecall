@@ -10,26 +10,48 @@ import {
 } from "./styles";
 
 import party from "../../assets/img/party.png";
+import sad from "../../assets/img/sad.png";
 import check from "../../assets/img/check.svg";
 import doubt from "../../assets/img/doubt.svg";
 import error from "../../assets/img/error.svg";
 
-export function FlashcardSummary() {
+interface FlashcardSummaryProps {
+  summaryImage: Array<string>;
+}
+
+export function FlashcardSummary({ summaryImage }: FlashcardSummaryProps) {
+  const unsuccess = summaryImage.filter((image) => image.includes("error"));
+  console.log(unsuccess);
   return (
     <FlashcardSummaryContainer>
       <FlashcardSummaryHeader>
-        <FlashcardSummaryImage src={party} alt={"Parabéns"} />
-        <FlashcardSummaryTitle>Parabéns</FlashcardSummaryTitle>
+        {unsuccess.length !== 0 ? (
+          <FlashcardSummaryImage src={sad} alt={"Putz"} />
+        ) : (
+          <FlashcardSummaryImage src={party} alt={"Parabéns"} />
+        )}
+        {unsuccess.length !== 0 ? (
+          <FlashcardSummaryTitle>Putz...</FlashcardSummaryTitle>
+        ) : (
+          <FlashcardSummaryTitle>Parabéns</FlashcardSummaryTitle>
+        )}
       </FlashcardSummaryHeader>
       <FlashcardSummaryContent>
-        Você não esqueceu de nenhum flashcard!
+        {unsuccess.length !== 0 ? (
+          <FlashcardSummaryContent>
+            Ainda faltam alguns... Mas não desanime!
+          </FlashcardSummaryContent>
+        ) : (
+          <FlashcardSummaryContent>
+            Você não esqueceu de nenhum flashcard!
+          </FlashcardSummaryContent>
+        )}
       </FlashcardSummaryContent>
       <FlashcardSummaryStatus>4/4 CONCLUÍDOS</FlashcardSummaryStatus>
       <FlashcardSummaryHitsContainer>
-        <FlashcardSummaryHits src={doubt} />
-        <FlashcardSummaryHits src={check} />
-        <FlashcardSummaryHits src={check} />
-        <FlashcardSummaryHits src={check} />
+        {summaryImage.map((image) => {
+          return <FlashcardSummaryHits src={image} />;
+        })}
       </FlashcardSummaryHitsContainer>
     </FlashcardSummaryContainer>
   );

@@ -17,8 +17,12 @@ export function FlashcardTitle({
   onCardClicked,
   cardResult,
 }: FlashcardTitleProps) {
+  function handleSummaryAndTitle() {
+    onCardClicked(true);
+  }
+
   return (
-    <FlashcardTitleContainer onClick={() => onCardClicked(true)}>
+    <FlashcardTitleContainer onClick={() => handleSummaryAndTitle()}>
       <FlashcardTitleText>Pergunta {questionIndex}</FlashcardTitleText>
       {cardResult ? (
         <FlashCardTitleImage src={cardResult} alt="Imagem da questão" />

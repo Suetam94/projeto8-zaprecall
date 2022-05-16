@@ -6,6 +6,7 @@ export const FlashcardPartialSummaryContainer = styled.div`
   background: #ffffff;
   box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.05);
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   position: fixed;
@@ -20,4 +21,14 @@ export const FlashcardPartialSummaryContent = styled.p`
   font-size: 18px;
   line-height: 22px;
   color: #333333;
+`;
+
+export const FlashcardPartialSummaryImage = styled.img`
+  width: 23px;
+  height: 23px;
+  margin-right: 5px;
+  margin-top: 6px;
+  :last-child {
+    margin-right: 0;
+  }
 `;
