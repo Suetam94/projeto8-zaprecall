@@ -6,8 +6,6 @@ import { CardHeader, CardMain } from "./styles";
 import { useEffect, useState } from "react";
 import { request } from "../../libs/app";
 import { FlashcardPartialSummary } from "../FlashcardPartialSummary";
-import { Simulate } from "react-dom/test-utils";
-import emptied = Simulate.emptied;
 
 interface CardProps {
   onRecallInit: (init: boolean) => void;
