@@ -6,13 +6,16 @@ import { CardHeader, CardMain } from "./styles";
 import { useEffect, useState } from "react";
 import { request } from "../../libs/app";
 import { FlashcardPartialSummary } from "../FlashcardPartialSummary";
+import { Simulate } from "react-dom/test-utils";
+import emptied = Simulate.emptied;
 
 interface CardProps {
   onRecallInit: (init: boolean) => void;
   flashcardGoal: number;
+  deck: string;
 }
 
-export function Card({ onRecallInit, flashcardGoal }: CardProps) {
+export function Card({ onRecallInit, flashcardGoal, deck }: CardProps) {
   const [questions, setQuestions] = useState<QuestionProps[]>([]);
   const [cardsSolved, setCardsSolved] = useState(0);
   const [summaryImage, setSummaryImage] = useState<Array<string>>([]);
@@ -20,7 +23,9 @@ export function Card({ onRecallInit, flashcardGoal }: CardProps) {
   useEffect(() => {
     request
       .get(
-        "/questions?apiKey=S19VeOIbHXr4DMzaDhGN0fQrvZOxp4tOuC7RvmRr&limit=20"
+        `/questions?apiKey=S19VeOIbHXr4DMzaDhGN0fQrvZOxp4tOuC7RvmRr&limit=20&category=${
+          deck === "all" ? '' : deck
+        }`
       )
       .then((response) =>
         setQuestions(

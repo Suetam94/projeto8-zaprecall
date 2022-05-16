@@ -13,6 +13,10 @@ export const HomeContainer = styled.div`
 
 export const FormHome = styled.form`
   margin-bottom: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 
   input {
     width: 246px;
@@ -30,5 +34,23 @@ export const FormHome = styled.form`
 
   input::placeholder {
     color: #adadad;
+  }
+
+  select {
+    width: 246px;
+    height: 43px;
+    background: #ffffff;
+    border-radius: 5px;
+    color: #adadad;
+    margin-top: 18px;
+    padding: 10px;
+
+    option {
+      color: #000;
+
+      :first-child {
+        color: #adadad;
+      }
+    }
   }
 `;
