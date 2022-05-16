@@ -1,18 +1,20 @@
 import { Home } from "./components/Home";
 import "../src/assets/css/style.css";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { Card } from "./components/Card";
-import { request } from "./libs/app";
 
 export function App() {
   const [isRecallInit, setIsRecallInit] = useState(false);
-
+  const [flashcardGoal, setFlashcardGoal] = useState(4);
   return (
     <>
       {!isRecallInit ? (
-        <Home onRecallInit={setIsRecallInit} />
+        <Home
+          onFlashcardGoal={setFlashcardGoal}
+          onRecallInit={setIsRecallInit}
+        />
       ) : (
-        <Card onRecallInit={setIsRecallInit} />
+        <Card flashcardGoal={flashcardGoal} onRecallInit={setIsRecallInit} />
       )}
     </>
   );

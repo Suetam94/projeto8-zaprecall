@@ -9,12 +9,14 @@ interface FlashcardPartialSummaryProps {
   concluded: number;
   summaryImage: Array<string>;
   onRecallInit: (init: boolean) => void;
+  flashcardGoal: number;
 }
 
 export function FlashcardPartialSummary({
   concluded,
   summaryImage,
   onRecallInit,
+  flashcardGoal,
 }: FlashcardPartialSummaryProps) {
   if (concluded < 4) {
     return (
@@ -34,6 +36,7 @@ export function FlashcardPartialSummary({
   } else {
     return (
       <FlashcardSummary
+        flashcardGoal={flashcardGoal}
         onRecallInit={onRecallInit}
         summaryImage={summaryImage}
       />

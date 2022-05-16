@@ -9,9 +9,10 @@ import { FlashcardPartialSummary } from "../FlashcardPartialSummary";
 
 interface CardProps {
   onRecallInit: (init: boolean) => void;
+  flashcardGoal: number;
 }
 
-export function Card({ onRecallInit }: CardProps) {
+export function Card({ onRecallInit, flashcardGoal }: CardProps) {
   const [questions, setQuestions] = useState<QuestionProps[]>([]);
   const [cardsSolved, setCardsSolved] = useState(0);
   const [summaryImage, setSummaryImage] = useState<Array<string>>([]);
@@ -52,6 +53,7 @@ export function Card({ onRecallInit }: CardProps) {
         })}
       </CardMain>
       <FlashcardPartialSummary
+        flashcardGoal={flashcardGoal}
         summaryImage={summaryImage}
         concluded={cardsSolved}
         onRecallInit={onRecallInit}

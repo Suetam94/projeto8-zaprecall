@@ -17,30 +17,42 @@ import { RestartButton } from "../RestartButton";
 interface FlashcardSummaryProps {
   summaryImage: Array<string>;
   onRecallInit: (init: boolean) => void;
+  flashcardGoal: number;
 }
 
 export function FlashcardSummary({
   summaryImage,
   onRecallInit,
+  flashcardGoal,
 }: FlashcardSummaryProps) {
-  const unsuccess = summaryImage.filter((image) => image.includes("error"));
-  console.log(unsuccess);
+  const errors = summaryImage.filter((image) => image.includes("error"));
+  const asserts = summaryImage.filter((image) => image.includes("check"));
+
+  if (flashcardGoal > 4) {
+    flashcardGoal = 4;
+  }
+  if (flashcardGoal < 1) {
+    flashcardGoal = 1;
+  }
+
+  const success = errors.length === 0 || asserts.length >= flashcardGoal;
+
   return (
     <FlashcardSummaryContainer>
       <FlashcardSummaryHeader>
-        {unsuccess.length !== 0 ? (
+        {!success ? (
           <FlashcardSummaryImage src={sad} alt={"Putz"} />
         ) : (
           <FlashcardSummaryImage src={party} alt={"Parabéns"} />
         )}
-        {unsuccess.length !== 0 ? (
+        {!success ? (
           <FlashcardSummaryTitle>Putz...</FlashcardSummaryTitle>
         ) : (
           <FlashcardSummaryTitle>Parabéns</FlashcardSummaryTitle>
         )}
       </FlashcardSummaryHeader>
       <FlashcardSummaryContent>
-        {unsuccess.length !== 0 ? (
+        {!success ? (
           <FlashcardSummaryContent>
             Ainda faltam alguns... Mas não desanime!
           </FlashcardSummaryContent>
