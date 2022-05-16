@@ -2,6 +2,7 @@ import { Logo } from "../Generals/Logo";
 import { AppTitle } from "../Generals/AppTitle";
 
 import { FlashcardFrontFace, QuestionProps } from "../FlashcardFrontFace";
+import { Loading } from "../Loading";
 import { CardHeader, CardMain } from "./styles";
 import { useEffect, useState } from "react";
 import { request } from "../../libs/app";
@@ -17,6 +18,7 @@ export function Card({ onRecallInit, flashcardGoal, deck }: CardProps) {
   const [questions, setQuestions] = useState<QuestionProps[]>([]);
   const [cardsSolved, setCardsSolved] = useState(0);
   const [summaryImage, setSummaryImage] = useState<Array<string>>([]);
+  const [removeLoader, setRemoveLoader] = useState(false);
 
   const apiKey = import.meta.env.VITE_API_KEY;
 
@@ -27,13 +29,14 @@ export function Card({ onRecallInit, flashcardGoal, deck }: CardProps) {
           deck === "all" ? "" : deck
         }`
       )
-      .then((response) =>
+      .then((response) => {
         setQuestions(
           response.data
             .filter((item: { correct_answer: any }) => item.correct_answer)
             .slice(0, 4)
-        )
-      );
+        );
+        setRemoveLoader(true);
+      });
   }, []);
 
   return (
@@ -43,6 +46,7 @@ export function Card({ onRecallInit, flashcardGoal, deck }: CardProps) {
         <AppTitle marginLeft={"15px"} />
       </CardHeader>
       <CardMain>
+        {!removeLoader && <Loading />}
         {questions.map((question, index) => {
           return (
             <FlashcardFrontFace
