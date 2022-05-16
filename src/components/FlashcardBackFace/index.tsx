@@ -14,7 +14,7 @@ interface FlashcardQuestionProps {
   questionInfo: QuestionProps;
   onTitleClicked: (clicked: boolean) => void;
   onAnswersShowed: (clicked: boolean) => void;
-  onCardSolved: (solved: number) => void;
+  onCardSolved: any;
   onCardResult: (image: string) => void;
   cardsSolved: number;
 }
@@ -28,8 +28,6 @@ export function FlashcardBackFace({
   onCardResult,
 }: FlashcardQuestionProps) {
   function handleReturnAfterFeedback(buttonClicked: string) {
-    onCardSolved(cardsSolved++);
-
     if (buttonClicked === "error") {
       onCardResult(error);
     } else if (buttonClicked === "doubt") {
@@ -40,6 +38,9 @@ export function FlashcardBackFace({
 
     onTitleClicked(false);
     onAnswersShowed(false);
+    onCardSolved((oldValue: number) => {
+      return oldValue + 1;
+    });
   }
 
   return (

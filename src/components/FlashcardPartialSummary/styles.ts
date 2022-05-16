@@ -14,7 +14,6 @@ export const FlashcardPartialSummaryContainer = styled.div`
 `;
 
 export const FlashcardPartialSummaryContent = styled.p`
-  width: 145px;
   height: 22px;
   font-family: "Recursive", cursive;
   font-weight: 400;

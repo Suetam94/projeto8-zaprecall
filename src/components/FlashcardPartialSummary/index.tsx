@@ -10,7 +10,6 @@ interface FlashcardPartialSummaryProps {
 export function FlashcardPartialSummary({
   concluded,
 }: FlashcardPartialSummaryProps) {
-  console.log(concluded);
   return (
     <FlashcardPartialSummaryContainer>
       <FlashcardPartialSummaryContent>

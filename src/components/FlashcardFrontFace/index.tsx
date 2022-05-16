@@ -34,7 +34,6 @@ export function FlashcardFrontFace({
 }: FlashcardFrontFaceProps) {
   const [isClicked, setIsClicked] = useState(false);
   const [showAnswer, setShowAnswer] = useState(false);
-  // const [cardsSolved, setCardsSolved] = useState(0);
   const [cardResult, setCardResult] = useState(play);
 
   return (
