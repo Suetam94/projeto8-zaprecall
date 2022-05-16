@@ -20,11 +20,13 @@ export function Card({ onRecallInit, flashcardGoal, deck }: CardProps) {
   const [cardsSolved, setCardsSolved] = useState(0);
   const [summaryImage, setSummaryImage] = useState<Array<string>>([]);
 
+  console.log(deck);
+
   useEffect(() => {
     request
       .get(
         `/questions?apiKey=S19VeOIbHXr4DMzaDhGN0fQrvZOxp4tOuC7RvmRr&limit=20&category=${
-          deck === "all" ? '' : deck
+          deck === "all" ? "" : deck
         }`
       )
       .then((response) =>
