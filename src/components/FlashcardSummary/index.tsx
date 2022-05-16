@@ -11,15 +11,18 @@ import {
 
 import party from "../../assets/img/party.png";
 import sad from "../../assets/img/sad.png";
-import check from "../../assets/img/check.svg";
-import doubt from "../../assets/img/doubt.svg";
 import error from "../../assets/img/error.svg";
+import { RestartButton } from "../RestartButton";
 
 interface FlashcardSummaryProps {
   summaryImage: Array<string>;
+  onRecallInit: (init: boolean) => void;
 }
 
-export function FlashcardSummary({ summaryImage }: FlashcardSummaryProps) {
+export function FlashcardSummary({
+  summaryImage,
+  onRecallInit,
+}: FlashcardSummaryProps) {
   const unsuccess = summaryImage.filter((image) => image.includes("error"));
   console.log(unsuccess);
   return (
@@ -53,6 +56,7 @@ export function FlashcardSummary({ summaryImage }: FlashcardSummaryProps) {
           return <FlashcardSummaryHits src={image} />;
         })}
       </FlashcardSummaryHitsContainer>
+      <RestartButton onRecallInit={onRecallInit} />
     </FlashcardSummaryContainer>
   );
 }

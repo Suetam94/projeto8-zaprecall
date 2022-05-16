@@ -7,12 +7,14 @@ import { useEffect, useState } from "react";
 import { request } from "../../libs/app";
 import { FlashcardPartialSummary } from "../FlashcardPartialSummary";
 
-export function Card() {
+interface CardProps {
+  onRecallInit: (init: boolean) => void;
+}
+
+export function Card({ onRecallInit }: CardProps) {
   const [questions, setQuestions] = useState<QuestionProps[]>([]);
   const [cardsSolved, setCardsSolved] = useState(0);
-  const [summaryImage, setSummaryImage] = useState<Array<string>>(
-    []
-  );
+  const [summaryImage, setSummaryImage] = useState<Array<string>>([]);
 
   useEffect(() => {
     request
@@ -52,6 +54,7 @@ export function Card() {
       <FlashcardPartialSummary
         summaryImage={summaryImage}
         concluded={cardsSolved}
+        onRecallInit={onRecallInit}
       />
     </>
   );

@@ -8,11 +8,13 @@ import { FlashcardSummary } from "../FlashcardSummary";
 interface FlashcardPartialSummaryProps {
   concluded: number;
   summaryImage: Array<string>;
+  onRecallInit: (init: boolean) => void;
 }
 
 export function FlashcardPartialSummary({
   concluded,
   summaryImage,
+  onRecallInit,
 }: FlashcardPartialSummaryProps) {
   if (concluded < 4) {
     return (
@@ -30,6 +32,11 @@ export function FlashcardPartialSummary({
       </FlashcardPartialSummaryContainer>
     );
   } else {
-    return <FlashcardSummary summaryImage={summaryImage} />;
+    return (
+      <FlashcardSummary
+        onRecallInit={onRecallInit}
+        summaryImage={summaryImage}
+      />
+    );
   }
 }

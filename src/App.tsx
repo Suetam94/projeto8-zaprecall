@@ -8,6 +8,12 @@ export function App() {
   const [isRecallInit, setIsRecallInit] = useState(false);
 
   return (
-    <>{!isRecallInit ? <Home onRecallInit={setIsRecallInit} /> : <Card />}</>
+    <>
+      {!isRecallInit ? (
+        <Home onRecallInit={setIsRecallInit} />
+      ) : (
+        <Card onRecallInit={setIsRecallInit} />
+      )}
+    </>
   );
 }
