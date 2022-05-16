@@ -53,4 +53,10 @@ export const FormHome = styled.form`
       }
     }
   }
+
+  @media (min-width: 991px) {
+    input, select {
+      width: 567.12px;
+    }
+  }
 `;

@@ -15,6 +15,11 @@ export const FlashcardQuestionContainer = styled.div`
   :last-child {
     margin-bottom: 75px;
   }
+  
+  @media (min-width: 991px) {
+    width: 567.12px;
+    height: 91.74px;
+  }
 `;
 
 export const FlashcardQuestionTextDiv = styled.div`

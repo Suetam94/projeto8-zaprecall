@@ -15,6 +15,11 @@ export const FlashcardBackFaceContainer = styled.div`
   :last-child {
     margin-bottom: 0;
   }
+
+  @media (min-width: 991px) {
+    width: 567.12px;
+    height: 91.74px;
+  }
 `;
 
 export const FlashcardBackFaceAnswer = styled.p`
@@ -30,6 +35,10 @@ export const FlashcardBackFaceButtonsContainer = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
+
+  @media (min-width: 991px) {
+    justify-content: space-around;
+  }
 `;
 
 export const FlashcardButton = styled.button`
